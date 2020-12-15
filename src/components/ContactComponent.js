@@ -32,8 +32,7 @@ class Contact extends Component {
 	}
 
 	handleSubmit(values) {
-		console.log('Current state is: ' + JSON.stringify(values));
-		alert('Current state is: ' + JSON.stringify(values));
+		this.props.postFeedback(values);
 		this.props.resetFeedbackForm();
 	}
 
@@ -206,7 +205,8 @@ class Contact extends Component {
 								<Col md={{ size: 4, offset: 2 }}>
 									<div className='form-check'>
 										<Label check>
-											<Control.checkbox model='.agree' name='agree' className='form-check-input' /> <strong>May we contact you?</strong>
+											<Control.checkbox model='.agree' name='agree' className='form-check-input' />{' '}
+											<strong>May we contact you?</strong>
 										</Label>
 									</div>
 								</Col>
@@ -222,7 +222,13 @@ class Contact extends Component {
 									Your Feedback
 								</Label>
 								<Col md={10}>
-									<Control.textarea model='.feedback' id='feedback' name='feedback' rows='12' className='form-control' />
+									<Control.textarea
+										model='.feedback'
+										id='feedback'
+										name='feedback'
+										rows='12'
+										className='form-control'
+									/>
 								</Col>
 							</Row>
 							<Row className='form-group'>
